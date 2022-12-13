@@ -3,7 +3,7 @@ import type { NextApiRequest, NextApiResponse } from 'next'
 
 type Data = object;
 
-const productItems = [
+const items = [
   {
     item_no: 122997,
     item_name: "스탠리 클래식 런치박스",
@@ -98,5 +98,5 @@ export default function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json(productItems)
+  res.status(200).json(items)
 }

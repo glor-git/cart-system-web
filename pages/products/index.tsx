@@ -5,7 +5,7 @@ import { useQuery } from 'react-query'
 import { AxiosError } from "axios";
 import Loading from "../../components/Loading";
 import Error from '../../components/Error';
-import ProductList from "../../components/ProductList";
+import ProductList from "../../components/Products/ProductList";
 import useStore from "../../store";
 
 type itemProps = {

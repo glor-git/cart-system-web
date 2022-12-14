@@ -2,12 +2,19 @@ import { NextPage } from "next";
 import styled from '@emotion/styled'
 import { itemProps } from "./productType";
 import { numberWithCommas } from "../../util/comma";
+import React from "react";
+import useStore from "../../store";
 
 type props = {
-  productData : itemProps
+  productData: itemProps
 }
 
 const ProductItem: NextPage<props> = ({ productData }) => {
+  const { carts, setCarts } = useStore<any>(state => state);
+
+  const addCarts = () => {
+    setCarts(productData);
+  }
 
   return (
     <ProductItemWrapper>
@@ -17,7 +24,7 @@ const ProductItem: NextPage<props> = ({ productData }) => {
       <ItemBox>
         <ItemName>{productData.item_name}</ItemName>
         <Price>{numberWithCommas(productData.price)}</Price>
-        <CartIcon>
+        <CartIcon onClick={addCarts}>
           <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 13 12">
             <path d="M4.146 3.95L0 4.583l3 3.075L2.292 12 6 9.95 9.708 12 9 7.658l3-3.075-4.146-.633L6 0z" stroke={'black'} fill={'none'}/>
           </svg>
